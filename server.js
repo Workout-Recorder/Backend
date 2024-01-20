@@ -5,9 +5,16 @@ const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
 const PORT = 4000
+const cors = require('cors');
 
 // express app
 const app = express()
+
+// CORS
+app.use(cors({
+  origin: 'https://workout-recorder-frontend.vercel.app',
+  optionsSuccessStatus: 200
+}));
 
 // middleware
 app.use(express.json())
